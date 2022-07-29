@@ -7,7 +7,6 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
-
     Rectangle {
         width: parent.width
         height: parent.height
@@ -20,7 +19,4 @@ Window {
         height: 200
         width: 300
     }
-
-
-
 }
