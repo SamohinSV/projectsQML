@@ -12,30 +12,15 @@ Window {
         spacing: 15
 
         Repeater {
-            model: [{color:"orange", count:3}, {color:"red", count:5},
-                {color:"green", count:7}, {color:"blue", count:4}]
-
-//            ListModel {
-//                ListElement {
-//                    myNumber: 3
-//                    myColor: "orange"
-//                }
-//                ListElement {
-//                    myNumber: 5
-//                    myColor: "red"
-//                }
-//                ListElement {
-//                    myNumber: 7
-//                    myColor: "green"
-//                }
-//                ListElement {
-//                    myNumber: 4
-//                    myColor: "blue"
-//                }
-//            }
+            model: [
+                {color: "orange",   count: 3},
+                {color: "red",      count: 5},
+                {color: "green",    count: 7},
+                {color: "blue",     count: 4}
+            ]
 
             Column {
-                id: column
+                id: oneColumn
 
                 property var currentColor: modelData.color
                 property var currentCount: modelData.count
@@ -43,12 +28,52 @@ Window {
                 spacing: 25
 
                 Repeater {
-                    model: column.currentCount
+                    model: oneColumn.currentCount
 
                     Rectangle {
                         width: 56
                         height: 56
-                        border.color: column.currentColor
+                        border.color: oneColumn.currentColor
+                    }
+                }
+            }
+        }
+
+        Repeater {
+            model: ListModel {
+                ListElement {
+                    myNumber: 3
+                    myColor: "black"
+                }
+                ListElement {
+                    myNumber: 2
+                    myColor: "brown"
+                }
+                ListElement {
+                    myNumber: 1
+                    myColor: "gray"
+                }
+                ListElement {
+                    myNumber: 4
+                    myColor: "purple"
+                }
+            }
+
+            Column {
+                id: twoColumn
+
+                property var currentCount: model.myNumber
+                property var currentColor: model.myColor
+
+                spacing: 25
+
+                Repeater {
+                    model: twoColumn.currentCount
+
+                    Rectangle {
+                        width: 56
+                        height: 56
+                        border.color: twoColumn.currentColor
                     }
                 }
             }
