@@ -17,3 +17,4 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick REQUIRED)
 
 add_subdirectory(FirstProject)
 add_subdirectory(SecondProject)
+add_subdirectory(ThirdProject)
